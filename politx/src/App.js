@@ -16,7 +16,22 @@ function App() {
     .then(response => {return response.json()})
     .then(searchResults => {
       //console.log(searchResults);
-      console.log(searchResults.officials[0].name)
+      //array of all offices
+      let offices = searchResults.offices;
+      //array of names of officials in those offices
+      let officials = searchResults.officials;
+      var representativesArray = [];
+
+      for(var i = 0; i < offices.length; i++) {
+        const repRow = <div key={offices[i].officialIndices[0]}>
+          <p>{i + 1}. {offices[i].name}: {officials[i].name}</p>
+        </div>
+        representativesArray.push(repRow);
+      }
+
+      //setting reps to list of all representatives' repRows
+      setReps(representativesArray);
+
     })
     .catch(err => console.log(err))
   }
