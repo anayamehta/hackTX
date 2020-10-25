@@ -6,10 +6,18 @@ function App() {
 
   const [reps, setReps] = useState();
   const [address, setAddress] = useState();
+  const [memberID, setMemberID] = useState("");
   const [details, setDetails] = useState();
+<<<<<<< HEAD
+  const [bills, setBills] = useState();
+
+
+=======
   //const [objreps, setObjReps] = useState();
   const objrep = []
+>>>>>>> 16c8a56ece6c674c02e3b78a7bc4a904009218a0
   const apiKey = "AIzaSyAwjcLpuwIkHOZNdVAkJalXK2fyYSJhBv8";
+  const apiKey2 = "Am0fjAIaHBG95NK3x07FU2GWcouY0HD5pVLsw72z";
 
   const findReps = (userAddress) => {
     userAddress = encodeURI(userAddress)
@@ -47,14 +55,65 @@ function App() {
     .catch(err => console.log(err))
   }
 
+  const findBills = (memberID) => {
+    let type = "cosponsored"
+    //let memberID =  // member id for Abdnor James (Republican - South Dakota)ssssss
+    const url = `https://api.propublica.org/congress/v1/members/${memberID}/bills/${type}.json`;
+    fetch(url,{
+      headers: {
+        "X-API-Key": apiKey2
+      }
+    })
+    .then(response => {return response.json()})
+    .then(searchResults => {
+      console.log(searchResults)
+      let results = searchResults.results[0].bills;
+      //array of names of officials in those offices
+      // let officials = searchResults.officials;
+      var billsArray = [];
+
+      if (results == undefined) {
+        billsArray.push("No bills to report.")
+      } else {
+        for(var i = 0; i < results.length; i++) {
+          const billRow = <div key={i}>
+            <h3> Bill- {results[i].short_title}: </h3>
+            <h6> Latest action date: {results[i].latest_major_action_date} </h6>
+            <h6>  Primary Subject: {results[i].primary_subject} </h6>
+            <h6>  Still active?: {results[i].active} </h6>
+            <h6>  Brief: {results[i].summary} </h6>
+            
+          </div>
+          billsArray.push(billRow);
+        }
+      }
+      //setting reps to list of all representatives' repRows
+      setBills(billsArray);
+
+    })
+    .catch(err => console.log(err))
+  }
+
   let changeAddress = (event) => {
     setAddress(event.target.value);
+  }
+
+  let changeID = (event) => {
+    setMemberID(event.target.value);
   }
 
   //find the representatives based on the value in the address
   let addressChangeHandler = () =>{
     findReps(address);
   }
+<<<<<<< HEAD
+
+  let billHandler = () => {
+    // john lewis : L000287
+    findBills(memberID);
+  }
+
+=======
   // display details based on what the mouse is hovering over
   let detailHandler = (event) => {
     //know when to subtring up to
@@ -79,6 +138,7 @@ function App() {
   }
 
 
+>>>>>>> 16c8a56ece6c674c02e3b78a7bc4a904009218a0
   return (
     <div className="App">
       <h1 className="header">PO<span className="loc">LOC</span>TICS </h1>
@@ -97,6 +157,14 @@ function App() {
       <div className="detailsContainer"> 
         <br></br>
         {details}
+      </div>
+      <input
+        id='bills'
+        onChange={changeID}
+        placeholder="Enter a member ID to get their bills" />
+      <button onClick={billHandler}>Find bills!</button>
+      <div>
+        {bills}
       </div>
     </div>
   );
