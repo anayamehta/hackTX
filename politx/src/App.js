@@ -167,18 +167,22 @@ function App() {
     findReps(address);
   }
 
-  //find bills based on member ID once the button is pressed
-  let billHandler = useEffect(() => {
-    // john lewis : L000287
-    findMemberID(name, chamber)
-    findBills(memberID);
-  })
-
-  // let billHandler = () => {
+  // //find bills based on member ID once the button is pressed
+  // let billHandler = useEffect(() => {
+  //   // john lewis : L000287
   //   findMemberID(name, chamber)
   //   findBills(memberID);
-  // }
+  // }, [name, chamber, memberID])
 
+  // let bruh = useEffect(() => {
+  //   findBills(memberID);
+  // }, [memberID])
+
+  let billHandler = () => {
+    findMemberID(name, chamber)
+    findBills(memberID)
+  }
+  
   return (
     <div className="App">
       <h1 className="header">PO<span className="loc">LOC</span>TICS </h1>
