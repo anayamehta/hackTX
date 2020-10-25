@@ -8,14 +8,10 @@ function App() {
   const [address, setAddress] = useState();
   const [memberID, setMemberID] = useState("");
   const [details, setDetails] = useState();
-<<<<<<< HEAD
   const [bills, setBills] = useState();
 
-
-=======
   //const [objreps, setObjReps] = useState();
   const objrep = []
->>>>>>> 16c8a56ece6c674c02e3b78a7bc4a904009218a0
   const apiKey = "AIzaSyAwjcLpuwIkHOZNdVAkJalXK2fyYSJhBv8";
   const apiKey2 = "Am0fjAIaHBG95NK3x07FU2GWcouY0HD5pVLsw72z";
 
@@ -106,14 +102,12 @@ function App() {
   let addressChangeHandler = () =>{
     findReps(address);
   }
-<<<<<<< HEAD
 
   let billHandler = () => {
     // john lewis : L000287
     findBills(memberID);
   }
 
-=======
   // display details based on what the mouse is hovering over
   let detailHandler = (event) => {
     //know when to subtring up to
@@ -138,7 +132,6 @@ function App() {
   }
 
 
->>>>>>> 16c8a56ece6c674c02e3b78a7bc4a904009218a0
   return (
     <div className="App">
       <h1 className="header">PO<span className="loc">LOC</span>TICS </h1>
