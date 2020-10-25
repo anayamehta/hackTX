@@ -8,9 +8,14 @@ function App() {
   const [address, setAddress] = useState();
   const [memberID, setMemberID] = useState("");
   const [details, setDetails] = useState();
+<<<<<<< HEAD
   const [bills, setBills] = useState();
 
 
+=======
+  //const [objreps, setObjReps] = useState();
+  const objrep = []
+>>>>>>> 16c8a56ece6c674c02e3b78a7bc4a904009218a0
   const apiKey = "AIzaSyAwjcLpuwIkHOZNdVAkJalXK2fyYSJhBv8";
   const apiKey2 = "Am0fjAIaHBG95NK3x07FU2GWcouY0HD5pVLsw72z";
 
@@ -26,16 +31,21 @@ function App() {
       //array of names of officials in those offices
       let officials = searchResults.officials;
       var representativesArray = [];
-
       if (offices == undefined) {
         representativesArray.push("Invalid address")
       } else {
+        objrep.push(...officials);
+        var index = 1;
         for(var i = 0; i < offices.length; i++) {
-          const repRow = <div key={offices[i].officialIndices[0]} onMouseEnter={() => setDetails("hey")} 
-          onMouseLeave={() => setDetails()}>
-            <p>{i + 1}. {offices[i].name}: {officials[i].name}</p>
-          </div>
-          representativesArray.push(repRow);
+          for(var j = 0; j < offices[i].officialIndices.length; j++){
+            var officialIndex = offices[i].officialIndices[j];
+            const repRow = <div id={offices[i].officialIndices[j]} onMouseEnter={(event) => detailHandler(event) } 
+            onMouseLeave={() => setDetails()} >
+              <p>{index}. {offices[i].name}: {officials[officialIndex].name}</p>
+            </div>
+            representativesArray.push(repRow);
+            index++;
+          }
         }
       }
       //setting reps to list of all representatives' repRows
@@ -96,15 +106,42 @@ function App() {
   let addressChangeHandler = () =>{
     findReps(address);
   }
+<<<<<<< HEAD
 
   let billHandler = () => {
     // john lewis : L000287
     findBills(memberID);
   }
 
+=======
+  // display details based on what the mouse is hovering over
+  let detailHandler = (event) => {
+    //know when to subtring up to
+    var indexOfPeriod = 0
+    for(var i = 0; i < (event.target.innerText).length; i++){
+      if((event.target.innerText).charAt(i) == '.'){
+        indexOfPeriod = i;
+        break;
+      }
+    }
+
+    var index = (event.target.innerText).substring(0,indexOfPeriod) - 1;
+    console.log(objrep[index]);
+    var person = objrep[index];
+
+    const pic = `${person.photoUrl}`
+    var detailRow = <div>
+      <h1>{person.name} ({person.party})</h1>
+      <img className="profilePic" src={pic} alt="picture no provided" width="300" height="350" ></img>
+    </div>
+    setDetails(detailRow)
+  }
+
+
+>>>>>>> 16c8a56ece6c674c02e3b78a7bc4a904009218a0
   return (
     <div className="App">
-      <p> PoliTX! for HackTX 2020 </p>
+      <h1 className="header"> PoliTX! for HackTX 2020 </h1>
       <input
         id='address'
         onChange={changeAddress}
@@ -115,7 +152,6 @@ function App() {
         {reps}
       </div>
       <div className="detailsContainer"> 
-        Hello World
         <br></br>
         {details}
       </div>
