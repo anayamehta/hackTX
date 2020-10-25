@@ -12,10 +12,7 @@ function App() {
   const [name, setName] = useState();
   const [chamber, setChamber] = useState();
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 152945df9c6f9608003f11bcac0f8ec5e92d2436
   //const [objreps, setObjReps] = useState();
   const objrep = []
   const apiKey = "AIzaSyAwjcLpuwIkHOZNdVAkJalXK2fyYSJhBv8";
@@ -166,33 +163,9 @@ function App() {
     setChamber("house")
   }
 
-<<<<<<< HEAD
-  // display details based on what the mouse is hovering over
-  let detailHandler = (event) => {
-    //know when to subtring up to
-    var indexOfPeriod = 0
-    for(var i = 0; i < (event.target.innerText).length; i++){
-      if((event.target.innerText).charAt(i) == '.'){
-        indexOfPeriod = i;
-        break;
-      }
-    }
-
-    var index = (event.target.innerText).substring(0,indexOfPeriod) - 1;
-    console.log(objrep[index]);
-    var person = objrep[index];
-
-    const pic = `${person.photoUrl}`
-    var detailRow = <div>
-      <h1>{person.name} ({person.party})</h1>
-      <img className="profilePic" src={pic} alt="picture no provided" width="300" height="350" ></img>
-    </div>
-    setDetails(detailRow)
-=======
   //find the representatives based on the value in the address once the button is pressed
   let addressChangeHandler = () => {
     findReps(address);
->>>>>>> 152945df9c6f9608003f11bcac0f8ec5e92d2436
   }
 
   // //find bills based on member ID once the button is pressed
