@@ -6,6 +6,7 @@ function App() {
 
   const [reps, setReps] = useState();
   const [address, setAddress] = useState();
+  const [details, setDetails] = useState();
 
   const apiKey = "AIzaSyAwjcLpuwIkHOZNdVAkJalXK2fyYSJhBv8";
 
@@ -26,7 +27,8 @@ function App() {
         representativesArray.push("Invalid address")
       } else {
         for(var i = 0; i < offices.length; i++) {
-          const repRow = <div key={offices[i].officialIndices[0]}>
+          const repRow = <div key={offices[i].officialIndices[0]} onMouseEnter={() => setDetails("hey")} 
+          onMouseLeave={() => setDetails()}>
             <p>{i + 1}. {offices[i].name}: {officials[i].name}</p>
           </div>
           representativesArray.push(repRow);
@@ -47,7 +49,6 @@ function App() {
   let addressChangeHandler = () =>{
     findReps(address);
   }
-
   return (
     <div className="App">
       <p> PoliTX! for HackTX 2020 </p>
@@ -56,12 +57,16 @@ function App() {
         onChange={changeAddress}
         placeholder="Enter your address to know your representatives" />
       <button onClick={addressChangeHandler}>Find my representatives!</button>
-<<<<<<< HEAD
       <br></br>
-      {reps}
-=======
-      
->>>>>>> 2fd4912c82ca31e348d0169467ca8177846e0fdb
+      <div className="reps">
+        {reps}
+      </div>
+      <div className="detailsContainer"> 
+        Hello World
+        <br></br>
+        {details}
+      </div>
+
     </div>
   );
 }
