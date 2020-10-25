@@ -59,6 +59,7 @@ function App() {
       <div className="reps">
         {reps}
       </div>
+      <br></br>
     </div>
   );
 }
