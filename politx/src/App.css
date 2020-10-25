@@ -6,7 +6,18 @@
   text-align:left;
   color: blue;
   padding-left: 50px;
+  float: left;
 }
+.detailsContainer{
+  text-align: center;
+  background-color: aqua;
+  width: 400px;
+  float: right;
+  margin-top: 15px;
+  margin-right:500px;
+  
+}
+
 
 .App-logo {
   height: 40vmin;
