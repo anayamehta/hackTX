@@ -57,6 +57,7 @@ function App() {
         onChange={changeAddress}
         placeholder="Enter your address to know your representatives" />
       <button onClick={addressChangeHandler}>Find my representatives!</button>
+<<<<<<< HEAD
       <br></br>
       <div className="reps">
         {reps}
@@ -67,6 +68,12 @@ function App() {
         {details}
       </div>
 
+=======
+      <div className="reps">
+        {reps}
+      </div>
+      <br></br>
+>>>>>>> 5d92d9b1564f63fceffa3b313ae98e99d96db629
     </div>
   );
 }
