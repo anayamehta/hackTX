@@ -60,9 +60,7 @@ function App() {
       <br></br>
       {reps}
 =======
-      <div className="reps">
-        {reps}
-      </div>
+      
 >>>>>>> 2fd4912c82ca31e348d0169467ca8177846e0fdb
     </div>
   );
