@@ -162,42 +162,15 @@ function App() {
     setName(event.target.value);
     setChamber("house")
   }
-
-<<<<<<< HEAD
-  // display details based on what the mouse is hovering over
-  let detailHandler = (event) => {
-    //know when to subtring up to
-    var indexOfPeriod = 0
-    for(var i = 0; i < (event.target.innerText).length; i++){
-      if((event.target.innerText).charAt(i) == '.'){
-        indexOfPeriod = i;
-        break;
-      }
-    }
-
-    var index = (event.target.innerText).substring(0,indexOfPeriod) - 1;
-    console.log(objrep[index]);
-    var person = objrep[index];
-
-    const pic = `${person.photoUrl}`
-    var detailRow = <div>
-      <h1>{person.name} ({person.party})</h1>
-      <img className="profilePic" src={pic} alt="picture no provided" width="300" height="350" ></img>
-    </div>
-    setDetails(detailRow)
-=======
->>>>>>> a3726a932f903ba5d10c50094bda815b7bb5d976
   //find the representatives based on the value in the address once the button is pressed
   let addressChangeHandler = () => {
     findReps(address);
   }
 
-<<<<<<< HEAD
   let billHandler = () => {
     findMemberID(name, chamber)
     findBills(memberID);
   }
-=======
   // //find bills based on member ID once the button is pressed
   // let billHandler = useEffect(() => {
   //   // john lewis : L000287
@@ -208,12 +181,6 @@ function App() {
   // let bruh = useEffect(() => {
   //   findBills(memberID);
   // }, [memberID])
->>>>>>> a3726a932f903ba5d10c50094bda815b7bb5d976
-
-  let billHandler = () => {
-    findMemberID(name, chamber)
-    findBills(memberID)
-  }
   
   return (
     <div className="App">
