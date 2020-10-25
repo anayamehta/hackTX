@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+.header{
+  text-align:center;
+}
 .reps {
   text-align:left;
   color: blue;
@@ -11,10 +14,10 @@
 .detailsContainer{
   text-align: center;
   background-color: aqua;
-  width: 400px;
+  width: 700px;
   float: right;
   margin-top: 15px;
-  margin-right:500px;
+  margin-right:100px;
   
 }
 
