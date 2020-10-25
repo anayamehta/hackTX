@@ -163,6 +163,7 @@ function App() {
     setChamber("house")
   }
 
+<<<<<<< HEAD
   // display details based on what the mouse is hovering over
   let detailHandler = (event) => {
     //know when to subtring up to
@@ -184,16 +185,36 @@ function App() {
       <img className="profilePic" src={pic} alt="picture no provided" width="300" height="350" ></img>
     </div>
     setDetails(detailRow)
+=======
+>>>>>>> a3726a932f903ba5d10c50094bda815b7bb5d976
   //find the representatives based on the value in the address once the button is pressed
   let addressChangeHandler = () => {
     findReps(address);
   }
 
+<<<<<<< HEAD
   let billHandler = () => {
     findMemberID(name, chamber)
     findBills(memberID);
   }
+=======
+  // //find bills based on member ID once the button is pressed
+  // let billHandler = useEffect(() => {
+  //   // john lewis : L000287
+  //   findMemberID(name, chamber)
+  //   findBills(memberID);
+  // }, [name, chamber, memberID])
 
+  // let bruh = useEffect(() => {
+  //   findBills(memberID);
+  // }, [memberID])
+>>>>>>> a3726a932f903ba5d10c50094bda815b7bb5d976
+
+  let billHandler = () => {
+    findMemberID(name, chamber)
+    findBills(memberID)
+  }
+  
   return (
     <div className="App">
       <h1 className="header">PO<span className="loc">LOC</span>TICS </h1>
