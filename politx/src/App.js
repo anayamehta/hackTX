@@ -73,7 +73,7 @@ function App() {
     const pic = `${person.photoUrl}`
     var detailRow = <div>
       <h1>{person.name} ({person.party})</h1>
-      <img className="profilePic" src={pic} alt="picture no provided" width="300" height="350" ></img>
+      <img className="profilePic" src={pic} alt="picture not provided" width="300" height="350" ></img>
     </div>
     setDetails(detailRow)
   }
@@ -81,12 +81,15 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="header"> PoliTX! for HackTX 2020 </h1>
+      <h1 className="header">PO<span className="loc">LOC</span>TICS </h1>
+      <h4 className="slogan">Because no one <em>knows</em> <span className="loc">loc</span>al politics</h4>
+
       <input
         id='address'
         onChange={changeAddress}
-        placeholder="Enter your address to know your representatives" />
-      <button onClick={addressChangeHandler}>Find my representatives!</button>
+        placeholder="Your Address" /> 
+        <br></br>
+      <button className="submitAddress" onClick={addressChangeHandler}>Send</button>
       <br></br>
       <div className="reps">
         {reps}

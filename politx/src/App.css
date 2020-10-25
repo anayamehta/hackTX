@@ -4,6 +4,36 @@
 
 .header{
   text-align:center;
+  font-size: 50px;
+  letter-spacing: 21px;
+  color:#0092CD;
+}
+.loc{
+  color:#CD0000;
+}
+
+.slogan{
+  text-align:center;
+}
+#address{
+  width: 500px;
+  height: 40px;
+  border-radius: 7px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+#address::placeholder{
+  padding-left: 10px;
+  color:black;
+}
+.submitAddress{
+  width: 204px;
+  height: 50px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  font-size: 17px;
 }
 .reps {
   text-align:left;
@@ -13,7 +43,7 @@
 }
 .detailsContainer{
   text-align: center;
-  background-color: aqua;
+  
   width: 700px;
   float: right;
   margin-top: 15px;
