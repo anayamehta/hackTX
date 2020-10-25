@@ -12,10 +12,7 @@ function App() {
   const [name, setName] = useState();
   const [chamber, setChamber] = useState();
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 152945df9c6f9608003f11bcac0f8ec5e92d2436
   //const [objreps, setObjReps] = useState();
   const objrep = []
   const apiKey = "AIzaSyAwjcLpuwIkHOZNdVAkJalXK2fyYSJhBv8";
@@ -166,7 +163,6 @@ function App() {
     setChamber("house")
   }
 
-<<<<<<< HEAD
   // display details based on what the mouse is hovering over
   let detailHandler = (event) => {
     //know when to subtring up to
@@ -188,24 +184,15 @@ function App() {
       <img className="profilePic" src={pic} alt="picture no provided" width="300" height="350" ></img>
     </div>
     setDetails(detailRow)
-=======
   //find the representatives based on the value in the address once the button is pressed
   let addressChangeHandler = () => {
     findReps(address);
->>>>>>> 152945df9c6f9608003f11bcac0f8ec5e92d2436
   }
 
-  //find bills based on member ID once the button is pressed
-  let billHandler = useEffect(() => {
-    // john lewis : L000287
+  let billHandler = () => {
     findMemberID(name, chamber)
     findBills(memberID);
-  })
-
-  // let billHandler = () => {
-  //   findMemberID(name, chamber)
-  //   findBills(memberID);
-  // }
+  }
 
   return (
     <div className="App">
