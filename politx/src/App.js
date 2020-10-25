@@ -22,13 +22,16 @@ function App() {
       let officials = searchResults.officials;
       var representativesArray = [];
 
-      for(var i = 0; i < offices.length; i++) {
-        const repRow = <div key={offices[i].officialIndices[0]}>
-          <p>{i + 1}. {offices[i].name}: {officials[i].name}</p>
-        </div>
-        representativesArray.push(repRow);
+      if (offices == undefined) {
+        representativesArray.push("Invalid address")
+      } else {
+        for(var i = 0; i < offices.length; i++) {
+          const repRow = <div key={offices[i].officialIndices[0]}>
+            <p>{i + 1}. {offices[i].name}: {officials[i].name}</p>
+          </div>
+          representativesArray.push(repRow);
+        }
       }
-
       //setting reps to list of all representatives' repRows
       setReps(representativesArray);
 
@@ -53,6 +56,7 @@ function App() {
         onChange={changeAddress}
         placeholder="Enter your address to know your representatives" />
       <button onClick={addressChangeHandler}>Find my representatives!</button>
+      <br></br>
       {reps}
     </div>
   );
