@@ -47,13 +47,15 @@ function App() {
 
   return (
     <div className="App">
-      <p> Politx! for HackTX 2020 </p>
+      <p> PoliTX! for HackTX 2020 </p>
       <input
         id='address'
         onChange={changeAddress}
         placeholder="Enter your address to know your representatives" />
       <button onClick={addressChangeHandler}>Find my representatives!</button>
-      {reps}
+      <div className="reps">
+        {reps}
+      </div>
     </div>
   );
 }
