@@ -35,6 +35,58 @@
   color: white;
   font-size: 17px;
 }
+#billInput{
+  float: left;
+  margin-left: 180px;
+  margin-bottom: 0px;
+}
+#senator{
+  width: 290px;
+  height: 40px;
+  border-radius: 7px;
+  margin-top: 14px;
+  margin-bottom: 25px;
+  margin-left: 107px;
+  display: inline-block;
+}
+#representative{
+  width: 290px;
+  height: 40px;
+  border-radius: 7px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+  display: inline-block;
+}
+#bills{
+  width: 290px;
+  height: 40px;
+  border-radius: 7px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+#billSubmit{
+  width: 204px;
+  height: 50px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  font-size: 17px;
+
+  margin-top: -5px;
+  margin-right: 115px;
+  margin-left: 115px;
+}
+#billsContainers{
+  margin-top: 50px;
+  margin-left: 300px;
+  width: 930px;
+}
+.billTitle{
+  color:#0092CD;
+}
 .reps {
   text-align:left;
   color: blue;
