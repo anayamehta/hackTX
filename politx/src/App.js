@@ -2,6 +2,7 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
 
+
 function App() {
   //states
   const [reps, setReps] = useState();
@@ -71,9 +72,13 @@ function App() {
     var person = objrep[index];
 
     const pic = `${person.photoUrl}`
+    if (pic == ""){
+      pic = "../public/puppy.jpg"
+    }
     var detailRow = <div>
       <h1>{person.name} ({person.party})</h1>
       <img className="profilePic" src={pic} alt="picture not provided" width="300" height="350" ></img>
+  <p>{person.urls[0]} <br></br> {person.phones[0]}</p>
     </div>
     setDetails(detailRow)
   }
@@ -126,10 +131,10 @@ function App() {
         billsArray.push(<h1>{searchResults.results[0].name}</h1>)
         for(var i = 0; i < results.length; i++) {
           const billRow = <div key={i}>
-            <h3> Bill - {results[i].short_title}: </h3>
+            <h3 className="billTitle"> Bill - {results[i].short_title}: </h3>
             <h6> Latest action date: {results[i].latest_major_action_date} </h6>
             <h6>  Primary Subject: {results[i].primary_subject} </h6>
-            <h6>  Still active?: {results[i].active} </h6>
+            <h6>  Still active?: {""+results[i].active} </h6>
             <h6>  Brief: {results[i].summary} </h6>
             
           </div>
@@ -194,6 +199,28 @@ function App() {
         <br></br>
       <button className="submitAddress" onClick={addressChangeHandler}>Send</button>
       <br></br>
+      
+      <div id="billInput">
+        <input 
+          id = 'senator'
+          onChange={changeSenator}
+          placeholder="Enter your senator to get their bills"/>
+        <input 
+          id = 'representative'
+          onChange={changeRepresentative}
+          placeholder="Enter your representative to get their bills"/>
+        <input
+          id='bills'
+          onChange={changeID}
+          placeholder="Enter a member ID to get their bills" />
+      </div>
+      <br></br>
+      <button id="billSubmit" onClick={billHandler}>Find bills!</button>
+      
+      <div id="billsContainers">
+        {bills}
+      </div>
+
       <div className="reps">
         {reps}
       </div>
@@ -201,23 +228,9 @@ function App() {
         <br></br>
         {details}
       </div>
-      <input 
-        id = 'senator'
-        onChange={changeSenator}
-        placeholder="Enter your senator to get their bills"/>
-      <input 
-        id = 'representative'
-        onChange={changeRepresentative}
-        placeholder="Enter your representative to get their bills"/>
-      <input
-        id='bills'
-        onChange={changeID}
-        placeholder="Enter a member ID to get their bills" />
-      <button onClick={billHandler}>Find bills!</button>
-      <div>
-        {bills}
-      </div>
+
     </div>
+    
   );
 }
 
